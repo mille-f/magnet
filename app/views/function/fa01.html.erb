@@ -1,0 +1,17 @@
+<h1>フーリエ解析</h1>
+<br>
+<form class="well form-inline"> 
+    F(ω) =
+    <input style="width:50px" type="number" class="input-mini" name = "a" step = "0.1" required>
+    α +
+    <input style="width:50px" type="number" class="input-mini" name = "b" step = "0.1" required>
+    jω
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">Plot</button>
+</form>
+
+<%= high_chart("chart-1", @graph_data1) %>
+<hr>
+<%= high_chart("chart-2", @graph_data2) %>
+<hr>
+<%= high_chart("chart-3", @graph_data3) %>

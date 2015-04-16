@@ -5,7 +5,6 @@ class FunctionController < ApplicationController
     def linearfunction
         p1 = "#{params[:a]}"
         p2 = "#{params[:b]}"
-        #render :text => "upper = #{params[:a]}, lower = #{params[:b]}"
         a = p1.to_f
         b = p2.to_f
         xAxis_categories = [-3, -2, -1, 0, 1, 2, 3]
@@ -66,6 +65,50 @@ class FunctionController < ApplicationController
             f.options[:yAxis] = [{ title: { text: 'y軸' }}]
             f.xAxis(categories: xAxis_categories, tickInterval: tickInterval)
             f.series(name: 'y = ' + p1 + 'x^3 + ' + p2 + 'x^2 +  ' + p3 + 'x + ' + p4, data: data, type: 'spline')
+        end
+    end
+
+    def fa01
+        p1 = "#{params[:a]}"
+        p2 = "#{params[:b]}"
+        a = p1.to_f
+        b = p2.to_f
+        xAxis_categories = []
+        for i in -10..10 do
+            xAxis_categories.push(i)
+        end
+        tickInterval     = 1
+        data1            = []
+        data2            = []
+        data3            = []
+        data4            = []
+        data5            = []
+        for j in -10..10 do
+            data1.push(a)
+            data2.push(j*b)
+            data3.push(((a**2)+((j*b)**2))**(0.5))
+            data4.push(Math.atan((j*b)/a))
+            data5.push([a,b*j])
+        end
+        @graph_data1 = LazyHighCharts::HighChart.new('graph') do |f|
+            f.title(text: '実部と虚部')
+            f.options[:yAxis] = [{ title: { text: 'y軸' }}]
+            f.xAxis(categories: xAxis_categories, tickInterval: tickInterval)
+            f.series(name: 'R(ω)', data: data1, type: 'spline')
+            f.series(name: 'X(ω)', data: data2, type: 'spline')
+        end
+        @graph_data2 = LazyHighCharts::HighChart.new('graph') do |f|
+            f.title(text: '絶対値と位相スペクトル')
+            f.options[:yAxis] = [{ title: { text: 'y軸' }}]
+            f.xAxis(categories: xAxis_categories, tickInterval: tickInterval)
+            f.series(name: '|F(ω)|', data: data3, type: 'spline')
+            f.series(name: 'φ(ω)', data: data4, type: 'spline')
+        end
+        @graph_data3 = LazyHighCharts::HighChart.new('graph') do |f|
+            f.title(text: '複素平面上のベクトル軌跡')
+            f.options[:yAxis] = [{ title: { text: 'X(ω)' }}]
+            f.xAxis(title: { text: 'R(ω)' }, categories: a, tickInterval: tickInterval)
+            f.series(name: 'ベクトル軌跡', data: data5, type: 'spline')
         end
     end
 
