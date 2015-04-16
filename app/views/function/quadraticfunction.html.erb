@@ -1,0 +1,16 @@
+<h1>2次関数</h1>
+<br>
+<form class="well form-inline">
+    y = 
+    <input style="width:50px;" type="number" class="input-mini" name = "a" step = "0.1" required>
+    x<sup>2</sup> +
+    <input style="width:50px;" type="number" class="input-mini" name = "b" step = "0.1" required>
+    x +
+    <input style="width:50px;" type="number" class="input-mini" name = "c" step = "0.1" required>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">Plot</button>
+</form>
+<div style="width:600px; height:800px;">
+    <%= high_chart("chart-1", @graph_data) %>
+</div>
+

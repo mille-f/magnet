@@ -3,6 +3,7 @@ Magnet::Application.routes.draw do
 	get "about" => "top#about", as: "about"
 	get "function/:action(/:name)" => "function"
     get "function/linearfunction" => "function#linearfunction"
+    get "function/quadraticfunction" => "function#quadraticfunction"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
