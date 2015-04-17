@@ -7,6 +7,8 @@ class FunctionController < ApplicationController
         p2 = "#{params[:b]}"
         a = p1.to_f
         b = p2.to_f
+        t = (-b)/a
+        p3 = t.to_s
         xAxis_categories = [-3, -2, -1, 0, 1, 2, 3]
         tickInterval     = 1
         data             = [-3*a+b, -2*a+b, -a+b, b, a+b, 2*a+b, 3*a+b]
@@ -16,6 +18,9 @@ class FunctionController < ApplicationController
             f.xAxis(categories: xAxis_categories, tickInterval: tickInterval)
             f.series(name: 'y = ' + p1 + 'x + ' + p2, data: data, type: 'spline')
         end
+        @msg1 = p1 + 'x + ' + p2 + ' = 0'
+        @msg2 = p1 + 'x = ' + '-(' + p2 + ')'
+        @msg3 = 'x = ' + p3
     end
 
     def quadraticfunction

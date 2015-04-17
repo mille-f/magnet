@@ -9,4 +9,14 @@
     <button type="submit" class="btn btn-primary">Plot</button>
 </form>
 
-<%= high_chart("chart-1", @graph_data) %>
+<div style="width:600px; height:400px;">
+    <%= high_chart("chart-1", @graph_data) %>
+</div>
+
+<div style="position:absolute; top:300px; right:180px; font-size:150%">
+\begin{align*}
+<%= @msg1 %> \\
+<%= @msg2 %> \\
+<%= @msg3 %>
+\end{align*}
+</div>
