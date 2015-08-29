@@ -31,12 +31,12 @@ class FunctionController < ApplicationController
         b = p2.to_f
         c = p3.to_f
         xAxis_categories = []
-        for i in -10..10 do
+        for i in -10..11 do
             xAxis_categories.push(i)
         end
         tickInterval     = 1
         data             = []
-        for j in -10..10 do
+        for j in -10..11 do
             data.push(a*j*j+b*j+c)
         end
         @graph_data = LazyHighCharts::HighChart.new('graph') do |f|
@@ -115,6 +115,13 @@ class FunctionController < ApplicationController
             f.xAxis(title: { text: 'R(ω)' }, categories: a, tickInterval: tickInterval)
             f.series(name: 'ベクトル軌跡', data: data5, type: 'spline')
         end
+    end
+
+    def hoge
+        p1 = "#{params[:a]}"
+        a = p1.to_f
+        hash = {"hoge" => a}
+        print(hash["hoge"])
     end
 
 end

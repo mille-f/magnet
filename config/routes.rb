@@ -6,6 +6,7 @@ Magnet::Application.routes.draw do
     get "function/quadraticfunction" => "function#quadraticfunction"
     get "function/cubicfunction" => "function#cubicfunction"
     get "function/fa01" => "function#fa01"
+    get "function/hoge" => "function#hoge"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
