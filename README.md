@@ -1,11 +1,10 @@
-= Magnet β (version 0.01)
+# Magnet β (version 0.01)
+[heroku](https://mille-magnet.herokuapp.com/)
 
-== function list
+## function list
 
 * linear function
 * quadratic function
 * cubic function
 
 * fourier analysis
-
-[heroku](https://mille-magnet.herokuapp.com/)
